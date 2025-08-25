@@ -1,38 +1,46 @@
 import streamlit as st
 
 st.set_page_config(
-    page_title="Conta Calorie",
+    page_title="Proporzionator",
     page_icon=":guardsman:",  # Add a page icon (optional)
     layout="wide",  # Choose between "centered" or "wide" layout
     initial_sidebar_state="expanded"  # Choose between "expanded" or "collapsed"
 )
 
 carboidrati = {
-    "Gallette di riso": 35,
-    "Pasta integrale": 50,
-    "Riso basmati": 45,
-    "Pane integrale": 60,
-    "Tonno in scatola": 132,
-    "Uova": 155,
-    "Yogurt greco": 59,
-    "Cracker integrali": 50,
-    "Fette biscottate": 40,
-    "Cereali": 60,
-    "Farina d'avena": 60,
-    "Patate": 77
+    "Biscotti Plasmon": 85,
+    "Cereali non glassati": 80,
+    "Cous Cous ": 80,
+    "Crackers integrali": 105,
+    "Farina d'avena": 100,
+    "Farro": 95,
+    "Gallette di riso": 77,
+    "Gnocchi": 250,
+    "Muslei": 90,
+    "Pane": 135,
+    "Pane integrale": 135,
+    "Pasta all'uovo": 110,
+    "Pasta bianca": 90,
+    "Pasta fresca": 115,
+    "Pasta integrale": 100,
+    "Patate": 400,
+    "Piadina integrale": 112.5,
+    "Riso basmati": 80,
+    "Riso bianco": 80,
+    "Riso integrale": 84
 }
 
-st.title("Conta carboidrati")
+st.title("Carboidrati")
 c1,c2,c3 = st.columns([10, 5, 10])
 
 with c1:
     selected_carboidrati = st.selectbox(
-        "Quale alimento vorresti mangiare?",
+        "Quale carboidrato di riferimento?",
         carboidrati.keys(),
         key="carboidrati"
     )
     sel_qty = st.number_input(
-        "Quante porzioni?",
+        "Quanti grammi?",
         min_value=5,
         max_value=3000,
         step=5,
@@ -40,7 +48,7 @@ with c1:
     )
 with c3:
     selected_variante_carboidrati = st.selectbox(
-        "Quale pietanza vorresti al posto della precedente?",
+        "Quale carboidrato vuoi?",
         carboidrati.keys(),
         key="carboidrati2"
     )
@@ -49,30 +57,43 @@ qty_res =  (carboidrati[selected_variante_carboidrati] * sel_qty) / carboidrati[
 c1,c2 = st.columns([2,1])
 with c2:
     st.markdown(f"""
-                Devi mangiare {qty_res:.0f}gr"""
+                Devi mangiare {qty_res:.0f}gr."""
                 )
     
 proteine = {
-    "Gallette di riso": 35,
-    "Pasta integrale": 50,
-    "Riso basmati": 45,
-    "Pane integrale": 60,
-    "Tonno in scatola": 132,
-    "Uova": 155,
-    "Yogurt greco": 59,
-    "Cracker integrali": 50,
-    "Fette biscottate": 40,
-    "Cereali": 60,
-    "Farina d'avena": 60,
-    "Patate": 77
+"Albume": 200,
+"Branzino": 140,
+"Bresaola": 65,
+"Carne rossa magra": 113,
+"Cozze": 180,
+"Fesa di tacchino": 120,
+"Feta greca": 150,
+"Fiocchi di latte": 200,
+"Gamberi sgusciati": 170,
+"Grana Padano 48 mesi": 70,
+"Latte proteico": 250,
+"Merluzzo": 160,
+"Pesce spada": 110,
+"Petto di pollo": 100,
+"Prosciutto cotto": 110,
+"Prosciutto crudo sgrassato": 75,
+"Salmone": 120,
+"Shaker": 15,
+"Skyr": 250,
+"Speck": 75,
+"Tonno fresco": 110,
+"Tonno in scatola al naturale": 110,
+"Total 0": 230,
+"Uova": 190,
+"Yogurt greco": 350
 }
 
-st.title("Conta Calorie")
+st.title("Proteine")
 c1,c2,c3 = st.columns([10, 5, 10])
 
 with c1:
     selected_proteine = st.selectbox(
-        "Quali proteine?",
+        "Quale è la proteina di riferimento?",
         proteine.keys(),
         key="proteine"
     )
@@ -85,7 +106,7 @@ with c1:
     )
 with c3:
     selected_variante_proteine = st.selectbox(
-        "Quale pietanza vorresti al posto della precedente?",
+        "Quale proteina vuoi?",
         proteine.keys(),
         key="proteine2"
     )
@@ -94,30 +115,26 @@ qty_res =  (proteine[selected_variante_proteine] * sel_qty) / proteine[selected_
 c1,c2 = st.columns([2,1])
 with c2:
     st.markdown(f"""
-                Devi mangiare {qty_res:.0f}gr"""
+                Devi mangiare {qty_res:.0f}gr."""
                 )
     
 grassi = {
-    "Gallette di riso": 35,
-    "Pasta integrale": 50,
-    "Riso basmati": 45,
-    "Pane integrale": 60,
-    "Tonno in scatola": 132,
-    "Uova": 155,
-    "Yogurt greco": 59,
-    "Cracker integrali": 50,
-    "Fette biscottate": 40,
-    "Cereali": 60,
-    "Farina d'avena": 60,
-    "Patate": 77
+"Avocado": 60,
+"Burro di arachidi": 18,
+"Cioccolato fondente al 80%": 19,
+"Mandorle": 18,
+"Noci": 15,
+"Olio extravergine di oliva": 9.1,
+"Pesto di pistacchi": 14,
+"Pistacchio": 16
 }
 
-st.title("Conta Calorie")
+st.title("Grassi")
 c1,c2,c3 = st.columns([10, 5, 10])
 
 with c1:
     selected_grassi = st.selectbox(
-        "Quali grassi?",
+        "Quale è il grasso di riferimento?",
         grassi.keys(),
         key="grassi"
     )
@@ -130,7 +147,7 @@ with c1:
     )
 with c3:
     selected_variante_grassi = st.selectbox(
-        "Quale pietanza vorresti al posto della precedente?",
+        "Quale grasso vuoi?",
         grassi.keys(),
         key="grassi2"
     )
@@ -139,5 +156,5 @@ qty_res =  (grassi[selected_variante_grassi] * sel_qty) / grassi[selected_grassi
 c1,c2 = st.columns([2,1])
 with c2:
     st.markdown(f"""
-                Devi mangiare {qty_res:.0f}gr"""
+                Devi mangiare {qty_res:.0f}gr."""
                 )
