@@ -56,9 +56,18 @@ with c3:
 qty_res =  (carboidrati[selected_variante_carboidrati] * sel_qty) / carboidrati[selected_carboidrati]
 c1,c2 = st.columns([2,1])
 with c2:
-    st.markdown(f"""
-                Devi mangiare {qty_res:.0f}gr."""
-                )
+     st.markdown(f"""
+    <div style="
+        display:inline-block;
+        background-color:#1f77b4;
+        color:white;
+        padding:4px 8px;
+        border-radius:4px;
+        font-size:24px;
+        font-weight:bold;">
+        Devi mangiare {qty_res:.0f} gr.
+    </div>
+""", unsafe_allow_html=True)
     
 proteine = {
 "Albume": 200,
@@ -114,9 +123,18 @@ with c3:
 qty_res =  (proteine[selected_variante_proteine] * sel_qty) / proteine[selected_proteine]
 c1,c2 = st.columns([2,1])
 with c2:
-    st.markdown(f"""
-                Devi mangiare {qty_res:.0f}gr."""
-                )
+     st.markdown(f"""
+    <div style="
+        display:inline-block;
+        background-color:#1f77b4;
+        color:white;
+        padding:4px 8px;
+        border-radius:4px;
+        font-size:24px;
+        font-weight:bold;">
+        Devi mangiare {qty_res:.0f} gr.
+    </div>
+""", unsafe_allow_html=True)
     
 grassi = {
 "Avocado": 60,
@@ -155,6 +173,16 @@ with c3:
 qty_res =  (grassi[selected_variante_grassi] * sel_qty) / grassi[selected_grassi]
 c1,c2 = st.columns([2,1])
 with c2:
-    st.markdown(f"""
-                Devi mangiare {qty_res:.0f}gr."""
-                )
+   st.markdown(f"""
+    <div style="
+        display:inline-block;
+        background-color:#1f77b4;
+        color:white;
+        padding:4px 8px;
+        border-radius:4px;
+        font-size:24px;
+        font-weight:bold;">
+        Devi mangiare {qty_res:.0f} gr.
+    </div>
+""", unsafe_allow_html=True)
+
