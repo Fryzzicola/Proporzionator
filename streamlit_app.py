@@ -22,7 +22,7 @@ carboidrati = {
     "Patate": 77
 }
 
-st.title("Conta Calorie")
+st.title("Conta carboidrati")
 c1,c2,c3 = st.columns([10, 5, 10])
 
 with c1:
