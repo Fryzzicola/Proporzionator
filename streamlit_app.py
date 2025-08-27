@@ -15,7 +15,7 @@ page_bg_img = f"""
 <style>
 [data-testid="stAppViewContainer"] {{
     background-image: url("data:image/jpeg;base64, {img}");
-    background-size: 5%;        /* Rimpicciolita al 50% */
+    background-size: 25%;        /* Rimpicciolita al 50% */
     background-repeat: no-repeat;/* Non ripetuta */
     background-position: right bottom; /* Centrata */
 }}
