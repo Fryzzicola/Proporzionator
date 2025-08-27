@@ -1,5 +1,37 @@
 import streamlit as st
 
+
+#background 
+def get_image_as_base64(file):
+    import base64
+    with open(file, "rb") as f:
+        data = f.read()
+        
+    return base64.b64encode(data).decode()
+
+img = get_image_as_base64("background.jpg")
+
+page_bg_img = f"""
+<style>
+[data-testid="stAppViewContainer"] {{
+    background-image: url("data:image/jpeg;base64, {img}");
+    background-size: 5%;        /* Rimpicciolita al 50% */
+    background-repeat: no-repeat;/* Non ripetuta */
+    background-position: left-up; /* Centrata */
+}}
+[data-testid="stHeader"] {{
+    background-color: rgba(0, 0, 0, 0);
+}}
+[data-testid="stToolbar"] {{
+    right: 2rem;
+}}
+</style>
+"""
+
+st.markdown(page_bg_img, unsafe_allow_html=True)
+
+
+
 st.set_page_config(
     page_title="Proporzionator",
     page_icon=":guardsman:",  # Add a page icon (optional)
